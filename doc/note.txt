@@ -1,0 +1,2 @@
+py -m pip install scipy
+py preprocess_data.py
