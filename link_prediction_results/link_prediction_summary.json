@@ -1,0 +1,47 @@
+{
+  "algorithm": "Variational Graph Autoencoder (VGAE), featureless two-layer GCN encoder, inner-product decoder",
+  "question": "Does structural node embedding improve held-out edge prediction over CN, Jaccard, and Adamic-Adar?",
+  "device": "cuda",
+  "device_name": "Tesla T4",
+  "nodes": 20053,
+  "observed_edges": 780965,
+  "train_positive_edges": 624773,
+  "validation_positive_edges": 78096,
+  "test_positive_edges": 78096,
+  "test_negative_edges": 78096,
+  "split_fractions": {
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "seed": 42,
+  "best_epoch": 24,
+  "validation_roc_auc": 0.864833610542728,
+  "epochs_requested": 100,
+  "hidden_dim": 64,
+  "latent_dim": 32,
+  "train_edges_per_epoch": 200000,
+  "candidate_negatives": "sampled uniformly from non-edges of the full observed graph; held-out positives excluded",
+  "split_note": "random edge holdout; all validation/test positive edges are removed from the training graph",
+  "interpretation_limit": "This is held-out prediction in a spatial proximity graph, not prediction of future social/business ties.",
+  "test_metrics": {
+    "common_neighbors": {
+      "roc_auc": 0.998703230173562,
+      "average_precision": 0.9982481995590532
+    },
+    "jaccard": {
+      "roc_auc": 0.9995166183560724,
+      "average_precision": 0.9994999683792523
+    },
+    "adamic_adar": {
+      "roc_auc": 0.9989006053035822,
+      "average_precision": 0.9985746150953074
+    },
+    "VGAE": {
+      "roc_auc": 0.8649274452512462,
+      "average_precision": 0.8638441974269284
+    }
+  },
+  "predictions_file": "test_predictions.csv",
+  "elapsed_seconds": 20.59
+}
