@@ -3,3 +3,7 @@ py -m pip install networkx
 py preprocess_data.py
 py compute_centrality.py
 py link_prediction_vgae.py --input-dir data/processed --output-dir link_prediction_results --device auto
+py export_link_prediction_gephi.py --processed-dir data/processed --results-dir link_prediction_results --top-k 500
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r web/requirements.txt
+python -m streamlit run web/app.py
