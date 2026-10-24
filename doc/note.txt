@@ -1,2 +1,4 @@
 py -m pip install scipy
+py -m pip install networkx
 py preprocess_data.py
+py compute_centrality.py
